@@ -13,3 +13,4 @@ jobs:
         with: 
           name: current date
       - run: ls -Rla
+      - run: cat to_upload.txt

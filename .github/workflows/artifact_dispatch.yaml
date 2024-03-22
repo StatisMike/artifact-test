@@ -1,10 +1,17 @@
 name: Artifact works
 on: 
   workflow_dispatch:
+    inputs:
+      upload:
+        type: boolean
+      download:
+        type: boolean
 
 jobs:
   upload:
+    if: inputs.upload == true
     uses: ./.github/workflows/artifact_upload.yaml
 
   download:
+    if: inputs.download == true
     uses: ./.github/workflows/artifact_download.yaml
