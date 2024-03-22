@@ -1,0 +1,22 @@
+name: Artifact upload
+
+on:
+  workflow_call:
+
+jobs:
+  artifact:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Generate artifact
+        shell: bash
+        run: |
+          date '+%Y-%m-%d %H:%M:%S' >> to_upload.txt
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4  
+        with: 
+          name: current date
+          path: to_upload.txt
+          retention-days: 90
+          overwrite: true

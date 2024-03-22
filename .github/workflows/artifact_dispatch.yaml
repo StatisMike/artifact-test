@@ -1,0 +1,10 @@
+name: Artifact works
+on: 
+  workflow_dispatch:
+
+jobs:
+  upload:
+    uses: ./.github/workflows/artifact_upload.yaml
+
+  download:
+    uses: ./.github/workflows/artifact_download.yaml
